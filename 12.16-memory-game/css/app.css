@@ -1,0 +1,428 @@
+html {
+    box-sizing: border-box;
+    font-size: 2px;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: inherit;
+}
+
+html,
+body {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+@media screen and (min-width: 320px) {
+    html {
+        font-size: 1px;
+    }
+    .deck {
+        width: 315px;
+        min-height: 315px;
+        padding: 12px;
+    }
+    .deck .card {
+        height: 60px;
+        width: 60px;
+    }
+    #dAgain{
+        width: 290px;
+        height: 190px;
+        margin-left: -145px;
+        margin-top: -240px;
+        padding-top: 50px;
+    }
+    #playAgain {
+        width: 50px;
+        margin-left: 108px;
+        margin-top: 2px;
+    }
+}
+
+@media screen and (min-width: 360px) {
+    html {
+        font-size: 4px;
+    }
+    .deck {
+        width: 340px;
+        min-height: 340px;
+        padding: 16px;
+    }
+    .deck .card {
+        height: 65px;
+        width: 65px;
+    }
+    #dAgain{
+        width: 290px;
+        height: 200px;
+        margin-left: -145px;
+        margin-top: -230px;
+        padding-top: 50px;
+    }
+    #playAgain {
+        width: 50px;
+        margin-left: 108px;
+        margin-top: 2px;
+    }
+}
+
+@media screen and (min-width: 540px) {
+    html {
+        font-size: 8px;
+    }
+    .deck {
+        width: 450px;
+        min-height: 450px;
+        padding: 20px;
+    }
+    .deck .card {
+        height: 85px;
+        width: 85px;
+    }
+    #dAgain{
+        width: 400px;
+        height: 270px;
+        margin-left: -200px;
+        margin-top: -210px;
+        padding-top: 70px;
+    }
+    #playAgain {
+        width: 70px;
+        margin-left: 150px;
+        margin-top: 4px;
+    }
+}
+
+@media screen and (min-width: 720px) {
+    html {
+        font-size: 12px;
+    }
+    .deck {
+        width: 500px;
+        min-height: 500px;
+        padding: 24px;
+    }
+    .deck .card {
+        height: 98px;
+        width: 98px;
+    }
+    #dAgain{
+        width: 450px;
+        height: 310px;
+        margin-left: -225px;
+        margin-top: -190px;
+        padding-top: 80px;
+    }
+    #playAgain {
+        width: 120px;
+        margin-left: 150px;
+        margin-top: 8px;
+    }
+}
+
+@media screen and (min-width: 1080px) {
+    html {
+        font-size: 14px;
+    }
+    .deck {
+        width: 550px;
+        min-height: 550px;
+        padding: 28px;
+    }
+    .deck .card {
+        height: 108px;
+        width: 108px;
+    }
+    #dAgain {
+        width: 490px;
+        height: 336px;
+        margin-left: -245px;
+        margin-top: -168px;
+        padding-top: 80px;
+    }
+    #playAgain {
+        width: 140px;
+        margin-left: 155px;
+        margin-top: 10px;
+    }
+}
+
+body {
+    background: #ffffff url('../img/geometry2.png'); /* Background pattern from Subtle Patterns */
+    font-family: 'Coda', cursive;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+h1 {
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 300;
+}
+
+/*
+ * Styles for the deck of cards
+ */
+
+.deck {
+    background: linear-gradient(160deg, #02ccba 0%, #aa7ecd 100%);
+    border-radius: 0.625rem;
+    box-shadow: 0.75rem 0.9375rem 1.25rem 0 rgba(46, 61, 73, 0.5);
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0 0 3rem;
+}
+
+
+.deck .card {
+    background-color: #2e3d49;
+    font-size: 0;
+    color: #ffffff;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0.5rem 0.125rem 1.25rem 0 rgba(46, 61, 73, 0.5);
+}
+
+
+
+.deck .card.open {
+    transition: transform 1s;
+    transform: rotateY(180deg);
+    background: #02b3e4;
+    cursor: default;
+}
+
+.deck .card.show {
+    font-size: 2.0625rem;
+}
+
+.deck .card.match {
+    animation: shake .6s linear;
+    -webkit-animation: shake .6s linear;
+    cursor: default;
+    background: #02ccba;
+    font-size: 2.0625rem;
+}
+
+.noTrue{
+    -webkit-animation: swing .15s linear 2 alternate, dBackward 0.3s 0.3s linear;
+    animation: swing .15s linear 2 alternate, dBackward 0.3s 0.3s linear;
+    animation-fill-mode:forwards;
+}
+
+/*
+ * Styles for the Score Panel
+ */
+
+.score-panel {
+    text-align: left;
+    width: 21.5624rem;
+    margin-bottom: 0.625rem;
+}
+
+.score-panel .stars {
+    padding: 0;
+    display: inline-block;
+    margin: 0 0.3125rem 0 0;
+}
+
+.score-panel .stars li {
+    list-style: none;
+    display: inline-block;
+}
+
+.score-panel .restart {
+    float: right;
+    cursor: pointer;
+}
+
+
+@keyframes shake
+ {
+     0% {
+         -webkit-transform: scale(1);
+         transform: scale(1);
+     }
+     25% {
+         -webkit-transform: scale(1.5,0.5);
+         transform: scale(1.5,0.5);
+     }
+     50% {
+         -webkit-transform: scale(0.75,1.25);
+         transform: scale(0.75,1.25);
+     }
+     75% {
+         -webkit-transform: scale(1.1,0.9);
+         transform: scale(1.1,0.9);
+     }
+     100% {
+         -webkit-transform: scale(1);
+         transform: scale(1);
+     }
+ }
+@-webkit-keyframes shake /* Safari and Chrome */
+{
+    0% {
+        -webkit-transform: scale(1);
+        transform: scale(1);
+    }
+    25% {
+        -webkit-transform: scale(1.5,0.5);
+        transform: scale(1.5,0.5);
+    }
+    50% {
+        -webkit-transform: scale(0.75,1.25);
+        transform: scale(0.75,1.25);
+    }
+    75% {
+        -webkit-transform: scale(1.1,0.9);
+        transform: scale(1.1,0.9);
+    }
+    100% {
+        -webkit-transform: scale(1);
+        transform: scale(1);
+    }
+}
+
+@keyframes swing
+{
+    0% {
+        -webkit-transform: rotate(-8deg) translate(-1.875rem,0px);
+        transform: rotate(-10deg) translate(-1.875rem,0);
+        font-size: 2.062rem;
+        background-color: red;
+    }
+    25% {
+        -webkit-transform: rotate(-4deg) translate(-0.9375rem,0);
+        transform: rotate(-5deg) translate(-0.9375rem,0);
+        font-size: 2.062rem;
+        background-color: red;
+    }
+    50% {
+        -webkit-transform: rotate(0) translate(0px,0);
+        transform: rotate(0) translate(0px,0);
+        font-size: 2.062rem;
+        background-color: red;
+    }
+    75% {
+        -webkit-transform: rotate(4deg) translate(0.9375rem,0);
+        transform: rotate(5deg) translate(0.9375rem,0);
+        font-size: 2.062rem;
+        background-color: red;
+    }
+    100% {
+        -webkit-transform: rotate(8deg) translate(1.875rem,0);
+        transform: rotate(10deg) translate(1.875rem,0);
+        font-size: 2.062rem;
+        background-color: red;
+    }
+}
+@-webkit-keyframes swing /* Safari and Chrome */
+{
+    0% {
+        -webkit-transform: rotate(-8deg) translate(-1.875rem,0px);
+        transform: rotate(-10deg) translate(-1.875rem,0);
+        font-size: 2.062rem;
+        background-color: red;
+    }
+    25% {
+        -webkit-transform: rotate(-4deg) translate(-0.9375rem,0);
+        transform: rotate(-5deg) translate(-0.9375rem,0);
+        font-size: 2.062rem;
+        background-color: red;
+    }
+    50% {
+        -webkit-transform: rotate(0) translate(0px,0);
+        transform: rotate(0) translate(0px,0);
+        font-size: 2.062rem;
+        background-color: red;
+    }
+    75% {
+        -webkit-transform: rotate(4deg) translate(0.9375rem,0);
+        transform: rotate(5deg) translate(0.9375rem,0);
+        font-size: 2.062rem;
+        background-color: red;
+    }
+    100% {
+        -webkit-transform: rotate(8deg) translate(1.875rem,0);
+        transform: rotate(10deg) translate(1.875rem,0);
+        font-size: 2.062rem;
+        background-color: red;
+    }
+}
+
+@keyframes dBackward
+{
+    0% {
+        transform: rotateY(180deg);
+        background: red;
+        font-size: 2.062rem;
+    }
+    49%{
+        background: red;
+        font-size: 2.062rem;
+    }
+    50%{
+        background: #2e3d49;
+        font-size: 0;
+    }
+    100% {
+        transform: rotateY(0);
+    }
+}
+
+@-webkit-keyframes dBackward
+{
+    0% {
+        -webkit-transform: rotateY(180deg);
+        transform: rotateY(180deg);
+        background: #2e3d49;
+        font-size: 0;
+    }
+    100% {
+        -webkit-transform: rotateY(0);
+        transform: rotateY(0);
+        background: #2e3d49;
+    }
+}
+
+#dAlert{
+    visibility: hidden;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(40,40,40,0.8);
+}
+
+#dAgain{
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    border: 1rem solid lightskyblue;
+    border-radius: 5rem;
+    font-size: 2rem;
+    text-align: center;
+    user-select:none;
+    background-color: #EEEEEE;
+}
+
+#playAgain{
+    background-color: #ffffff;
+    border-radius: 1rem;
+}
